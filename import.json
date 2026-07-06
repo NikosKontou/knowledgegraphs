@@ -1,0 +1,1 @@
+{"Collections":[{"sheetName":"onpiece","startColumn":"C","endColumn":"C","startRow":"2","endRow":"1395","comment":"","rule":"Individual: @C*\nTypes: @G*\nFacts: hasStatus @H*","active":true}]}
