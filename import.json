@@ -1,1 +1,1 @@
-{"Collections":[{"sheetName":"onpiece","startColumn":"C","endColumn":"C","startRow":"2","endRow":"1395","comment":"","rule":"Individual: @C*\nTypes: @G*\nFacts: hasStatus @H*","active":true}]}
+{"Collections":[{"sheetName":"onpiece","startColumn":"D","endColumn":"D","startRow":"2","endRow":"1395","comment":"","rule":"Individual: @C*\nFacts: hasStatus @H*, hasName @D* (xsd:string)","active":true}]}
