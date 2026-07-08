@@ -1,0 +1,1 @@
+{"Collections":[{"sheetName":"onpiece-occupations-cleaned","startColumn":"C","endColumn":"C","startRow":"2","endRow":"24","comment":"","rule":"Individual: @C*\nFacts: hasEaten @Q*","active":true}]}
