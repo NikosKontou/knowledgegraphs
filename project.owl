@@ -25,6 +25,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#affiliatedWith">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
     </owl:ObjectProperty>
@@ -35,6 +36,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasCaptain">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
     </owl:ObjectProperty>
@@ -45,8 +48,17 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasEaten">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DevilFruit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasMember">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -116,6 +128,12 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#originatesFrom">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     
 
 
@@ -201,6 +219,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Archaeologist">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
     </owl:Class>
     
 
@@ -217,6 +236,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#AssistantManager">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
     </owl:Class>
     
 
@@ -225,6 +245,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Bartender">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
     </owl:Class>
     
 
@@ -233,6 +254,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Bodyguards">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
     </owl:Class>
     
 
@@ -241,6 +263,12 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#BountyHunter">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#affiliatedWith"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -249,6 +277,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#BountyHunters">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
     </owl:Class>
     
 
@@ -257,6 +286,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Brothelowner">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
     </owl:Class>
     
 
@@ -265,13 +295,55 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Captain">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#affiliatedWith"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasEaten"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DevilFruit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasBounty"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#debutChapter"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasAge"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -279,6 +351,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chef">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
     </owl:Class>
     
 
@@ -295,6 +368,13 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#CipherPolAgent">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#inCipherPol"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#CipherPol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -311,25 +391,35 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Combatant">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#CommanderoftheDivineSoldiers -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#CommanderoftheDivineSoldiers"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#CommanderoftheDivineSoldiers">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#CommanderoftheSpiderMice -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#CommanderoftheSpiderMice"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#CommanderoftheSpiderMice">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Commodore -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Commodore"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Commodore">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -351,7 +441,10 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Cook -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Cook"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Cook">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -365,25 +458,37 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DaimyoofUdon -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DaimyoofUdon"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DaimyoofUdon">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Dancer -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Dancer"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Dancer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DancerPrisoneroftheGreatPrison -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DancerPrisoneroftheGreatPrison"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DancerPrisoneroftheGreatPrison">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DebtCollector -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DebtCollector"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DebtCollector">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -395,13 +500,19 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DirectoroftheMarineCriminalInvestigativeService -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DirectoroftheMarineCriminalInvestigativeService"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#DirectoroftheMarineCriminalInvestigativeService">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Doctor -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Doctor"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Doctor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -415,19 +526,34 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#EmperoroftheUnderworld -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#EmperoroftheUnderworld"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#EmperoroftheUnderworld">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#FirstMate -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#FirstMate"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#FirstMate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#affiliatedWith"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PirateCrew"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Fisherman -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Fisherman"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Fisherman">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -441,7 +567,10 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#GeishaMaster -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#GeishaMaster"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#GeishaMaster">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -455,25 +584,37 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Gifter -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Gifter"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Gifter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Gladiator -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Gladiator"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Gladiator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#GodofSkypiea -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#GodofSkypiea"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#GodofSkypiea">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#GodsGuard -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#GodsGuard"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#GodsGuard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -487,19 +628,28 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Graverobber -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Graverobber"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Graverobber">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Guardian -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Guardian"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Guardian">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Guardianshelper -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Guardianshelper"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Guardianshelper">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -511,7 +661,10 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#HeadChefofBaratiePirateCaptain -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#HeadChefofBaratiePirateCaptain"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#HeadChefofBaratiePirateCaptain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -525,7 +678,10 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Iceburgspet -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Iceburgspet"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Iceburgspet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -539,31 +695,52 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Kamuro -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Kamuro"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Kamuro">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Kayassecurityguards -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Kayassecurityguards"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Kayassecurityguards">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#King -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#King"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#King">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Kingsbird -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Kingsbird"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Kingsbird">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#LifeStatus -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#LifeStatus"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#LifeStatus">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Alive"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Deceased"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
     
 
 
@@ -583,25 +760,37 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Machibugyō -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Machibugyō"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Machibugyō">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Mafiagangster -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Mafiagangster"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Mafiagangster">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Magistrate -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Magistrate"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Magistrate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Manservant -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Manservant"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Manservant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -609,37 +798,76 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Marine">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#inMarineUnit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineUnit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineCaptain -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineCaptain"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineCaptain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#isCaptain"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineLieutenant -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineLieutenant"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineLieutenant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#inMarineUnit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineUnit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineOfficer -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineOfficer"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineOfficer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineRearAdmiral -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineRearAdmiral"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineRearAdmiral">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#inMarineUnit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineUnit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineSeamanRecruit -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineSeamanRecruit"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MarineSeamanRecruit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -653,13 +881,19 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Mayor -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Mayor"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Mayor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Mercenary -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Mercenary"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Mercenary">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -673,13 +907,19 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Musketeer -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Musketeer"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Musketeer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#NomadStiltwalker -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#NomadStiltwalker"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#NomadStiltwalker">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -693,7 +933,10 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Nurse -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Nurse"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Nurse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -713,25 +956,48 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#OfficerAgent -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#OfficerAgent"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#OfficerAgent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Okama -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Okama"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Okama">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasCaptain"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasCaptain"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Pandamansrival -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Pandamansrival"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Pandamansrival">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -745,7 +1011,10 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Pet -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Pet"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Pet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -753,13 +1022,28 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Pirate">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#inPirateCrew"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PirateCrew"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PirateCaptain -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PirateCaptain"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PirateCaptain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#isCaptain"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -767,49 +1051,77 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PirateCrew">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasCaptain"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PirateOfficer -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PirateOfficer"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PirateOfficer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Pirates -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Pirates"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Pirates">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Prince -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Prince"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Prince">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Prisoner -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Prisoner"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Prisoner">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PrisonerMineChiefGuard -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PrisonerMineChiefGuard"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PrisonerMineChiefGuard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PrisoneroftheGreatPrison -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PrisoneroftheGreatPrison"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#PrisoneroftheGreatPrison">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Queen -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Queen"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Queen">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -821,13 +1133,10 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#RestaurantOwner -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#RestaurantOwner"/>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Restaurantowner -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Restaurantowner"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#RestaurantOwner">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -835,31 +1144,49 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Revolutionary">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#inRevolutionaryArmy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#RevolutionaryArmyIntelligenceController -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#RevolutionaryArmyIntelligenceController"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#RevolutionaryArmyIntelligenceController">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#RoyalSeamstress -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#RoyalSeamstress"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#RoyalSeamstress">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Samurai -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Samurai"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Samurai">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Scientist -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Scientist"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Scientist">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -873,25 +1200,37 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SeniorOfficer -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SeniorOfficer"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SeniorOfficer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Servant -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Servant"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Servant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#ShandiaWarrior -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#ShandiaWarrior"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#ShandiaWarrior">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Shinuchi -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Shinuchi"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Shinuchi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -903,19 +1242,40 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Shipwright -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Shipwright"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Shipwright">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#affiliatedWith"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Sniper -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Sniper"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Sniper">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SoldierZombie -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SoldierZombie"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SoldierZombie">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasStatus"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Deceased"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -929,49 +1289,73 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SugarsBodyguard -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SugarsBodyguard"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SugarsBodyguard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SumoWrestler -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SumoWrestler"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SumoWrestler">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#TitanicCaptain -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#TitanicCaptain"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#TitanicCaptain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#ToadOilSalesman -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#ToadOilSalesman"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#ToadOilSalesman">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#ViceAdmiral -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#ViceAdmiral"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#ViceAdmiral">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Waitress -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Waitress"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Waitress">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WarlordoftheSea -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WarlordoftheSea"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WarlordoftheSea">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WarriorGodofJustice -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WarriorGodofJustice"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WarriorGodofJustice">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -983,7 +1367,10 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WestArmyDeputyCommander -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WestArmyDeputyCommander"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WestArmyDeputyCommander">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -997,21 +1384,25 @@
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WildZombie -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WildZombie"/>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WorldGovernment -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WorldGovernment">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#WildZombie">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#hasStatus"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Deceased"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Yubavillager -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Yubavillager"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Yubavillager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Occupation"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Character"/>
+    </owl:Class>
     
 
 
@@ -1100,7 +1491,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#BagīKaizokudan">
         <hasStatus rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#IntegratedIntoBuggy&apos;sDelivery"/>
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Buggy&apos;s Band of Pirates</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440000002000000015000000</hasBounty>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Buggy&apos;s Band of Pirates</hasName>
     </owl:NamedIndividual>
     
@@ -1139,7 +1530,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#BarutoKurabu -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#BarutoKurabu">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Barto Club</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">217000000</hasBounty>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Barto Club</hasName>
     </owl:NamedIndividual>
     
@@ -1271,7 +1662,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#BigguMamuKaizokudan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#BigguMamuKaizokudan">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Big Mom Pirates</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11044500000</hasBounty>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Big Mom Pirates</hasName>
     </owl:NamedIndividual>
     
@@ -1380,7 +1771,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#BonīKaizokudan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#BonīKaizokudan">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Bonney Pirates</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140000000</hasBounty>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bonney Pirates</hasName>
     </owl:NamedIndividual>
     
@@ -1424,38 +1815,6 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#CP7 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#CP7">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1089 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1089">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter179 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter179">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter436 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter436">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter553 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter553">
         <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
     </owl:NamedIndividual>
     
@@ -1551,14 +1910,6 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#EasterEgg -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#EasterEgg">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Easteregg -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Easteregg">
         <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
     </owl:NamedIndividual>
     
@@ -1719,7 +2070,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#HappōSuigun -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#HappōSuigun">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Happosui Army (Viz)</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">542000000</hasBounty>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Happosui Army (Viz)</hasName>
     </owl:NamedIndividual>
     
@@ -1766,7 +2117,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#HyakujūKaizokudan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#HyakujūKaizokudan">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Animal Kingdom Pirates (VIZ Media and Funimation sub);Beast Pirates (Funimation dub, Funimation sub (former))</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11179100000</hasBounty>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Animal Kingdom Pirates (VIZ Media and Funimation sub);Beast Pirates (Funimation dub, Funimation sub (former))</hasName>
     </owl:NamedIndividual>
     
@@ -1783,7 +2134,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#HātonoKaizokudan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#HātonoKaizokudan">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Heart Pirates</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200000500</hasBounty>
     </owl:NamedIndividual>
     
 
@@ -1883,7 +2234,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#KiddoKaizokudan">
         <hasStatus rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Unknown"/>
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Kid Pirates</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">477000000</hasBounty>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kid Pirates</hasName>
     </owl:NamedIndividual>
     
@@ -1908,7 +2259,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#KurohigeKaizokudan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#KurohigeKaizokudan">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Black Beard Pirates (Edited dub);Blackbeard Pirates (Uncut dub)</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4246200000</hasBounty>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black Beard Pirates (Edited dub);Blackbeard Pirates (Uncut dub)</hasName>
     </owl:NamedIndividual>
     
@@ -2040,7 +2391,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MugiwaraDaisendan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MugiwaraDaisendan">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Straw Hat Grand FleetStraw Hat Fleet (Funimation subs)</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3134000100</hasBounty>
     </owl:NamedIndividual>
     
 
@@ -2056,7 +2407,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MugiwaranoIchimi -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#MugiwaranoIchimi">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Straw Hat Pirates;Straw Hat Crew (OPCG)</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30000000</hasBounty>
     </owl:NamedIndividual>
     
 
@@ -3107,7 +3458,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#UtsukushikiKaizokudan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#UtsukushikiKaizokudan">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Beautiful Pirates</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">280000000</hasBounty>
     </owl:NamedIndividual>
     
 
@@ -3621,7 +3972,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Yonkō -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Yonkō">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Four Emperors</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1233900000</hasBounty>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Four Emperors</hasName>
     </owl:NamedIndividual>
     
@@ -3638,7 +3989,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#YontaMariaDaisendan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#YontaMariaDaisendan">
-        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">Yonta Maria Fleet</hasBounty>
+        <hasBounty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">148000000</hasBounty>
     </owl:NamedIndividual>
     
 
@@ -3657,7 +4008,7 @@
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Yoshimoto -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Yoshimoto">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Restaurantowner"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#RestaurantOwner"/>
         <hasStatus rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Alive"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Yoshimoto</hasName>
     </owl:NamedIndividual>
@@ -3710,7 +4061,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#YurusumajiMasuku">
         <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Pandamansrival"/>
-        <affiliatedWith rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Easteregg"/>
+        <affiliatedWith rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#EasterEgg"/>
         <hasStatus rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Alive"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Yurusumaji Mask</hasName>
     </owl:NamedIndividual>
@@ -3983,846 +4334,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter0;Episode0 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter0;Episode0">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1005;Episode1021 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1005;Episode1021">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1029;Episode1054 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1029;Episode1054">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter103;Episode63 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter103;Episode63">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1054;Episode1081 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1054;Episode1081">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1055(flashback);OnePieceFilmRed;Episode1029 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1055(flashback);OnePieceFilmRed;Episode1029">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1065;Episode1095 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1065;Episode1095">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter129;Episode78 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter129;Episode78">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter131;Episode79 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter131;Episode79">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter134;Episode81 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter134;Episode81">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter142;Episode91 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter142;Episode91">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter151(cover) -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter151(cover)">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter155;Episode103 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter155;Episode103">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter163;Episode100 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter163;Episode100">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter169;Episode106 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter169;Episode106">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1;Episode4 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter1;Episode4">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter213;Episode128 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter213;Episode128">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter222;Episode146 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter222;Episode146">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter22;Episode18 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter22;Episode18">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter233;Episode151 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter233;Episode151">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter234;Episode151 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter234;Episode151">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter237;Episode153 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter237;Episode153">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter23;Episode8 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter23;Episode8">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter24;Episode9 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter24;Episode9">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter254;Episode167 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter254;Episode167">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter269;Episode176 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter269;Episode176">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter304;Episode207 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter304;Episode207">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter309;Episode210 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter309;Episode210">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter322;Episode228 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter322;Episode228">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter323;Episode230 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter323;Episode230">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter324;Episode230 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter324;Episode230">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter329;Episode233 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter329;Episode233">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter352;Episode248 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter352;Episode248">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter367;Episode257 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter367;Episode257">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter391;Episode275 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter391;Episode275">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter420;Episode302 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter420;Episode302">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter426;Episode309 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter426;Episode309">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter42;Episode20 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter42;Episode20">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter43;Episode20 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter43;Episode20">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter440;Episode324 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter440;Episode324">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter440;Episode325 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter440;Episode325">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter445;Episode340 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter445;Episode340">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter446;Episode340 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter446;Episode340">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter448(cover) -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter448(cover)">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter452;Episode346 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter452;Episode346">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter498;Episode392 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter498;Episode392">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter4;Episode2 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter4;Episode2">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter500;Episode394 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter500;Episode394">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter523;Episode418 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter523;Episode418">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter533;Episode434 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter533;Episode434">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter537;Episode438 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter537;Episode438">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter537;Episode439 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter537;Episode439">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter543(cover);Episode419 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter543(cover);Episode419">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter551;Episode460 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter551;Episode460">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter552;Episode0 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter552;Episode0">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter552;Episode461 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter552;Episode461">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter553;Episode462 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter553;Episode462">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter553;Episode468 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter553;Episode468">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter556;Episode462 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter556;Episode462">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter561;Episode470 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter561;Episode470">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter564;Episode489 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter564;Episode489">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter575;Episode484 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter575;Episode484">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter598;Episode517 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter598;Episode517">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter606;Episode525 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter606;Episode525">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter606;Episode525(mentioned) -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter606;Episode525(mentioned)">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter611;Episode530 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter611;Episode530">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter628;Episode548 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter628;Episode548">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter671;Episode597 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter671;Episode597">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter673;Episode599 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter673;Episode599">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter684;Episode610(shadowed)Chapter1061;Episode1090(satellite)Chapter1066;Episode1096 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter684;Episode610(shadowed)Chapter1061;Episode1090(satellite)Chapter1066;Episode1096">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter700;Episode629 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter700;Episode629">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter703;Episode632 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter703;Episode632">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter705;Episode635 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter705;Episode635">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter706;Episode639 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter706;Episode639">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter717;Episode647 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter717;Episode647">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter77;Episode32 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter77;Episode32">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter795;Episode739 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter795;Episode739">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter804;Episode753 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter804;Episode753">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter806;Episode755 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter806;Episode755">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter810;Episode757 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter810;Episode757">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter812;Episode763 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter812;Episode763">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter823;Episode777 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter823;Episode777">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter825;Episode783 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter825;Episode783">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter826;Episode784 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter826;Episode784">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter827;Episode786 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter827;Episode786">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter828;Episode787 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter828;Episode787">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter832;Episode793 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter832;Episode793">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter841;Episode803(image),Episode804 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter841;Episode803(image),Episode804">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter850;Episode816 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter850;Episode816">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter860;Episode828 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter860;Episode828">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter8;Episode4 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter8;Episode4">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter905;Episode883 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter905;Episode883">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter906;Episode884 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter906;Episode884">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter909;Episode892 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter909;Episode892">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter925;Episode917 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter925;Episode917">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter926;Episode918 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter926;Episode918">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter927;Episode920 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter927;Episode920">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter931;Episode925 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter931;Episode925">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter936;Episode932 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter936;Episode932">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter948;Episode947 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter948;Episode947">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter966;Episode966 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter966;Episode966">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter971;Episode972 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter971;Episode972">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter977;Episode982 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter977;Episode982">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter980,Episode986 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter980,Episode986">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter991;Episode1055 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Chapter991;Episode1055">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Dog-Dog-Fruit,-Model&#45;&#45;Okuchi-no-Makami -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Dog-Dog-Fruit,-Model--Okuchi-no-Makami">
@@ -4857,30 +4368,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Kōsei-naruJūichininNoBaishin&apos;in">
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eleven Righteous Jurors</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SBSVolume75;Movie13;Chapter907;Episode887 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SBSVolume75;Movie13;Chapter907;Episode887">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SBSVolume77;Chapter877(cover);Episode710(fantasy) -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SBSVolume77;Chapter877(cover);Episode710(fantasy)">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SBSVolume96;Episode966 -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#SBSVolume96;Episode966">
-        <rdf:type rdf:resource="http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#Organization"/>
     </owl:NamedIndividual>
     
 
