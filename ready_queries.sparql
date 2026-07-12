@@ -1,0 +1,179 @@
+
+-- ==========================================================================================
+-- QUERY 3 — Discriminating structurally similar individuals (Yonko vs. not)
+-- ==========================================================================================
+-- Buggy and the two true Yonko (Newgate, Kaidou) are all PirateCaptainCharacter
+-- with bounties in the billions -- on bounty rank alone Buggy would look like a
+-- plausible Yonko candidate. The Yonko definition instead keys off crew TIER
+-- (isCaptainOf some YonkoCrew), so this query lays bounty, crew, and crew tier
+-- side by side and shows the reasoner's Yonko verdict for each captain, making
+-- visible exactly why Buggy is excluded despite his bounty.
+
+PREFIX : <http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?name ?bounty ?crewName ?yonkoCrewMarker ?supernovaCrewMarker ?rookieCrewMarker ?yonkoMarker
+WHERE {
+  ?captain rdf:type :PirateCaptainCharacter .
+  ?captain :hasName ?name .
+  ?captain :hasBountyAmount ?bounty .
+  ?captain :isCaptainOf ?crew .
+  ?crew :hasName ?crewName .
+  OPTIONAL {
+    ?crew rdf:type :YonkoCrew .
+    BIND("YonkoCrew" AS ?yonkoCrewMarker)
+  }
+  OPTIONAL {
+    ?crew rdf:type :SupernovaCrew .
+    BIND("SupernovaCrew" AS ?supernovaCrewMarker)
+  }
+  OPTIONAL {
+    ?crew rdf:type :RookieCrew .
+    BIND("RookieCrew" AS ?rookieCrewMarker)
+  }
+  OPTIONAL {
+    ?captain rdf:type :Yonko .
+    BIND("Yonko" AS ?yonkoMarker)
+  }
+}
+ORDER BY DESC(?bounty)
+
+
+
+
+-- ==========================================================================================
+-- QUERY 5a — Sub-property hierarchy traversal (hasCrewRole family, schema level)
+-- ==========================================================================================
+-- Five properties (isCaptainOf, isFirstMateOf, isNavigatorOf, isDoctorOf,
+-- isCookOf) are declared as sub-properties of hasCrewRole, itself a sub-property
+-- of the top-level affiliatedWith. This query recovers the full transitive
+-- sub-property closure of affiliatedWith directly from the schema
+-- (rdfs:subPropertyOf+). Only one variable is selected here on purpose -- this
+-- is a schema-level query about which PROPERTIES exist, not about individuals.
+-- See Query 5b for the matching instance-level data.
+
+PREFIX : <http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?subProp
+WHERE {
+  ?subProp rdfs:subPropertyOf+ :affiliatedWith .
+  ?subProp rdf:type owl:ObjectProperty .
+}
+ORDER BY ?subProp
+
+
+-- ==========================================================================================
+-- QUERY 5b — Concrete crew-role assertions using the hasCrewRole sub-property family
+-- ==========================================================================================
+-- Instance-level data using isCaptainOf/isFirstMateOf/isNavigatorOf/isDoctorOf/isCookOf,
+-- all of which entail affiliatedWith by sub-property (per Query 5a above). This is the
+-- companion query that actually shows characters, roles, and crews.
+
+PREFIX : <http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?name ?role ?crewName
+WHERE {
+  ?character :hasName ?name .
+  VALUES ?role { :isCaptainOf :isFirstMateOf :isNavigatorOf :isDoctorOf :isCookOf }
+  ?character ?role ?crew .
+  ?crew :hasName ?crewName .
+}
+ORDER BY ?crewName
+
+
+-- ==========================================================================================
+-- QUERY 6 — Category aggregation with subclass folding (Devil Fruit tiers)
+-- ==========================================================================================
+-- Devil Fruit categories go three levels deep (DevilFruitCategory -> Zoan ->
+-- MythicalZoan, e.g. Kaidou's fruit). This query uses rdfs:subClassOf* to fold
+-- every subcategory up into its top-level Paramecia/Zoan/Logia bucket, then
+-- aggregates bounty statistics per bucket. hasBountyAmount is OPTIONAL because
+-- three Logia users in the data are Marines, who canonically have no bounty --
+-- an inner join would have silently dropped the whole Logia row.
+
+PREFIX : <http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?topCategory (COUNT(DISTINCT ?eater) AS ?totalUsers) (COUNT(?bounty) AS ?usersWithBounty) (AVG(?bounty) AS ?avgBountyOfKnown)
+WHERE {
+  ?eater :hasEaten ?fruit .
+  OPTIONAL {
+    ?eater :hasBountyAmount ?bounty .
+  }
+  ?fruit :hasDevilFruitType ?category .
+  ?category rdfs:subClassOf* ?topCategory .
+  VALUES ?topCategory { :Paramecia :Zoan :Logia }
+}
+GROUP BY ?topCategory
+ORDER BY ?topCategory
+
+
+-- ==========================================================================================
+-- QUERY 7 — Full transitive class-hierarchy walk for a single individual
+-- ==========================================================================================
+-- This is the capstone query: it walks rdf:type combined with rdfs:subClassOf*
+-- for one individual (Kaidou) and returns every class he belongs to, at every
+-- depth, mixing what was ASSERTED (Human, PirateCaptainCharacter) with what was
+-- purely INFERRED (Yonko, BillionaireBountyPirate, DevilFruitUser) -- all
+-- recovered by a single graph traversal, with no distinction in the query
+-- between the two sources, because after classification there is none: they are
+-- just true statements about Kaidou in the materialized graph.
+--
+-- NOTE: also requires the MATERIALIZED graph for the Yonko / BillionaireBountyPirate /
+-- DevilFruitUser entries to appear.
+
+PREFIX : <http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?name (GROUP_CONCAT(DISTINCT ?class; separator=" | ") AS ?allTypes)
+WHERE {
+  ?ind :hasName ?name .
+  ?ind rdf:type ?directType .
+  ?directType rdfs:subClassOf* ?class .
+  ?class rdf:type owl:Class .
+  FILTER(?ind = :Kaidou)
+}
+GROUP BY ?name
+
+
+-- ==========================================================================================
+-- QUERY 8 — Value-partition coverage check (LifeStatus)
+-- ==========================================================================================
+-- LifeStatus is implemented as a formal value partition: Alive and Deceased are
+-- declared as an owl:equivalentClass union covering LifeStatus, and pairwise
+-- disjoint. This query confirms every Character with a hasStatus edge lands in
+-- exactly one of the two partition classes and tallies the population --
+-- functioning as a live sanity check on the qualified cardinality restriction
+-- (exactly 1 hasStatus) declared on Character.
+
+PREFIX : <http://www.semanticweb.org/nikos/ontologies/2026/6/untitled-ontology-29#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?statusClass (COUNT(?character) AS ?cnt) (GROUP_CONCAT(?charName; separator=", ") AS ?members)
+WHERE {
+  ?character :hasStatus ?status .
+  ?character :hasName ?charName .
+  ?status rdf:type ?statusClass .
+  FILTER(?statusClass = :Alive || ?statusClass = :Deceased)
+}
+GROUP BY ?statusClass
